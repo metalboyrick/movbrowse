@@ -51,6 +51,7 @@ function SearchBar() {
           onChange={handleSearch}
           borderRadius="0"
           ref={inputBoxRef}
+          value={searchValue}
         />
         {searchValue.length > 0 && (
           <Box
