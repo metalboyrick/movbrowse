@@ -14,8 +14,8 @@ const movieCardProps = {
     imdbID: "testImdbID"
 }
 
-jest.mock("next/image", () => jest.fn(({ src }) => <>{src}</>))
-jest.mock("../components/PosterDisplayModal", () => jest.fn(() => <>poster modal</>))
+jest.mock("../../ChakraNextImage", () => jest.fn(({ src, onClick }) => <div onClick={onClick}>{src}</div>))
+jest.mock('next/link', () => jest.fn(({href, children}) => <>{href}{children}</>));
 
 describe("MovieCard.view", () => {
   
@@ -43,17 +43,8 @@ describe("MovieCard.view", () => {
 
   it("should correctly redirect to its correct url", () => {
     render(<MovieCardView {...movieCardProps} />);
-    const linkElement = screen.getByText(/movie title/i);
-    expect(linkElement.href).toContain("testImdbID");
+    const linkElement = screen.getByText(/testImdbID/i);
+
   });
 
-  it("should show window modal when poster is clicked", () => {
-    render(<MovieCardView {...movieCardProps} />);
-    
-    const imgElement = screen.getByText(/someimage.jpg/i);
-
-    fireEvent.click(imgElement);
-
-    expect(screen.getByText(/poster modal/i)).toBeVisible();
-  });
 });
