@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import { PLACEHOLDER_POSTER_URL } from '@/common/constants';
+
 import MovieCardView from '../MovieCard.view';
 
 const movieCardProps = {
