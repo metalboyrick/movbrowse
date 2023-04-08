@@ -9,7 +9,8 @@ function Navbar() {
       <Flex
         as="nav"
         width="80%"
-        justifyContent={"space-between"}
+        direction={["column", "column", "row"]}
+        justifyContent={["space-between"]}
         alignItems={"center"}
       >
         <Link

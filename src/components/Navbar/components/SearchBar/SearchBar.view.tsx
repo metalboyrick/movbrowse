@@ -42,8 +42,12 @@ function SearchBar() {
   };
 
   return (
-    <HStack width="50%" alignItems={"flex-begin"}>
-      <VStack width="90%" position="relative" overflow={"visible"}>
+    <HStack
+      width={["100%", "100%", "50%"]}
+      mt={[4, 4, 0]}
+      alignItems={"flex-begin"}
+    >
+      <VStack width="97%" position="relative" overflow={"visible"}>
         <Input
           _focus={{ bgColor: "white" }}
           variant="filled"
@@ -84,8 +88,8 @@ function SearchBar() {
       </VStack>
 
       <IconButton
+        width={"3%"}
         right={0}
-        width="8%"
         icon={<SearchIcon />}
         aria-label={"search button"}
         colorScheme="orange"
