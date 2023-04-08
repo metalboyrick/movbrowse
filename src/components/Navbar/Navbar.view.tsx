@@ -1,15 +1,5 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Center,
-  Flex,
-  HStack,
-  IconButton,
-  Input,
-  Link,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 
 import SearchBar from "./components/SearchBar";
 
@@ -22,7 +12,13 @@ function Navbar() {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Link href="/" color="white" as="b">
+        <Link
+          href="/"
+          color="white"
+          fontWeight={"bold"}
+          cursor="pointer"
+          _hover={{ textDecoration: "none" }}
+        >
           MovBrowse
         </Link>
 
