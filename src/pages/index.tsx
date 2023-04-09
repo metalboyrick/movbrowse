@@ -1,8 +1,6 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import MovieCard from "@/components/MovieCard/MovieCard.view";
 
-const inter = Inter({ subsets: ["latin"] });
+import HomePage from "@/components/HomePage/HomePage.view";
 
 export default function Home() {
   return (
@@ -14,13 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MovieCard
-        title={"Catch Me If You Can"}
-        year={"1995"}
-        rating={9}
-        starring={"Tom Hanks, Leonardo DiCaprio"}
-        imdbID={"someImdbID"}
-      />
+      <HomePage />
     </>
   );
 }
