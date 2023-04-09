@@ -24,8 +24,6 @@ describe("MovieCard.view", () => {
 
     expect(screen.getByText(/movie title/i)).toBeVisible();
     expect(screen.getByText(/2023/i)).toBeVisible();
-    expect(screen.getByText(/7.5/i)).toBeVisible();
-    expect(screen.getByText(/leonardo/i)).toBeVisible();
     expect(screen.getByText(/someimage.jpg/i)).toBeVisible();
     expect(screen.queryByText(/poster modal/i)).not.toBeInTheDocument();
   });

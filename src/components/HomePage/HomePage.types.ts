@@ -1,8 +1,5 @@
 export interface HomePageProps {
   search?: string;
-
-  // TODO: design interface for SSR return value for movies
-  initialData?: any[];
 }
 
 export interface UseControllerReturnValue {

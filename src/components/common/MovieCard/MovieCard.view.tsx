@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Flex, VStack, Text, HStack, Box } from "@chakra-ui/react";
 
-import Image from "@/components/ChakraNextImage";
+import Image from "@/components/common/ChakraNextImage";
 
 import { MovieCardProps } from "./MovieCard.types";
 import { PLACEHOLDER_POSTER_URL } from "@/common/constants";
@@ -11,8 +11,6 @@ import { StarIcon } from "@chakra-ui/icons";
 function MovieCard({
   title,
   year,
-  rating,
-  starring,
   img = PLACEHOLDER_POSTER_URL,
   imdbID,
 }: MovieCardProps) {
@@ -43,31 +41,12 @@ function MovieCard({
             justifyContent={"space-between"}
             direction={"column"}
           >
-            <VStack align={"left"}>
+            <VStack align={"center"}>
               <Text fontWeight={"bold"} color="teal">
                 {title}
               </Text>
-              <Text color="gray" fontSize="sm">
-                {starring}
-              </Text>
+              <Text color="gray.100">{year}</Text>
             </VStack>
-
-            <Flex
-              justifyContent={"space-between"}
-              fontWeight={"bold"}
-              color="black"
-            >
-              <Text>{year}</Text>
-              <HStack>
-                <StarIcon color="yellow.400" />
-                <Text>
-                  {rating.toFixed(1)}{" "}
-                  <Text as="span" color="gray">
-                    / 10
-                  </Text>
-                </Text>
-              </HStack>
-            </Flex>
           </Flex>
         </Flex>
       </Link>
