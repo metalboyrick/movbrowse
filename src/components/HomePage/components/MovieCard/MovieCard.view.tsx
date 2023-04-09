@@ -26,7 +26,6 @@ function MovieCard({
           flexDirection={{ md: "column" }}
           width={["100%", "100%", "150px"]}
           alignItems={["center", "center", "flex-start"]}
-          bgColor={"white"}
           _hover={{
             bgColor: "teal.50",
           }}
@@ -34,19 +33,21 @@ function MovieCard({
         >
           <Image src={img} alt={"Movie Poster"} width={150} height={225} />
           <Flex
-            alignItems={"left"}
+            direction={"column"}
+            alignItems={"center"}
             padding={2}
             width="100%"
-            height={["225px", "225px", "150px", "150px"]}
-            justifyContent={"space-between"}
-            direction={"column"}
+            height={["225px", "225px", "120px", "120px"]}
           >
-            <VStack align={"center"}>
-              <Text fontWeight={"bold"} color="teal">
-                {title}
-              </Text>
-              <Text color="gray.100">{year}</Text>
-            </VStack>
+            <Text
+              fontWeight={"bold"}
+              color="teal"
+              textAlign={"center"}
+              lineHeight={1.2}
+            >
+              {title}
+            </Text>
+            <Text color="gray.500">{year}</Text>
           </Flex>
         </Flex>
       </Link>

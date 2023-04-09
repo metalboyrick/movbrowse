@@ -1,8 +1,9 @@
 import Head from "next/head";
 
 import HomePage from "@/components/HomePage/HomePage.view";
+import { GetServerSidePropsContext } from "next";
 
-export default function Home() {
+export default function Home(props: { search?: string }) {
   return (
     <>
       <Head>
@@ -12,7 +13,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage />
+      <HomePage {...props} />
     </>
   );
+}
+
+export function getServerSideProps(context: GetServerSidePropsContext) {
+  // TODO: handle errors
+
+  const search = context.query?.search || "";
+
+  return {
+    props: {
+      search,
+    },
+  };
 }

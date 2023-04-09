@@ -48,12 +48,6 @@ describe("HomePage.view", () => {
         Poster: null,
         Year: "2010",
       },
-      {
-        imdbID: "tt0816692",
-        Title: "Interstellar",
-        Poster: "https://example.com/poster4.jpg",
-        Year: "2014",
-      },
     ];
 
     const tempUseControllerMockReturnValue = { ...useComponentMockReturnValue };
