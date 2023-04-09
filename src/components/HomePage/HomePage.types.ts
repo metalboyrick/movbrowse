@@ -10,6 +10,5 @@ export interface UseControllerReturnValue {
     Year: string;
   }[];
   loading: boolean;
-  paginationLoading: boolean;
   error: any;
 }

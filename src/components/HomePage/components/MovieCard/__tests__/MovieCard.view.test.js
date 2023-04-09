@@ -1,24 +1,32 @@
-import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import "@testing-library/jest-dom";
+import { fireEvent, render, screen } from "@testing-library/react";
 
-import { PLACEHOLDER_POSTER_URL } from '@/common/constants';
+import { PLACEHOLDER_POSTER_URL } from "@/common/constants";
 
-import MovieCardView from '../MovieCard.view';
+import MovieCardView from "../MovieCard.view";
 
 const movieCardProps = {
-    title: 'Movie Title',
-    year: '2023',
-    rating: 7.5,
-    starring: 'Leonardo DiCaprio, Tom Hanks',
-    img: "someimage.jpg",
-    imdbID: "testImdbID"
-}
+  title: "Movie Title",
+  year: "2023",
+  rating: 7.5,
+  starring: "Leonardo DiCaprio, Tom Hanks",
+  img: "someimage.jpg",
+  imdbID: "testImdbID",
+};
 
-jest.mock("../../ChakraNextImage", () => jest.fn(({ src, onClick }) => <div onClick={onClick}>{src}</div>))
-jest.mock('next/link', () => jest.fn(({href, children}) => <>{href}{children}</>));
+jest.mock("@/components/common/ChakraNextImage", () =>
+  jest.fn(({ src, onClick }) => <div onClick={onClick}>{src}</div>)
+);
+jest.mock("next/link", () =>
+  jest.fn(({ href, children }) => (
+    <>
+      {href}
+      {children}
+    </>
+  ))
+);
 
 describe("MovieCard.view", () => {
-  
   it("should render happy state correctly", () => {
     render(<MovieCardView {...movieCardProps} />);
 
@@ -28,21 +36,17 @@ describe("MovieCard.view", () => {
     expect(screen.queryByText(/poster modal/i)).not.toBeInTheDocument();
   });
 
-
   it("should render no image correctly", () => {
-    const tempMovieCardProps = {...movieCardProps};
+    const tempMovieCardProps = { ...movieCardProps };
     tempMovieCardProps.img = undefined;
 
     render(<MovieCardView {...tempMovieCardProps} />);
 
     expect(screen.getByText(PLACEHOLDER_POSTER_URL)).toBeVisible();
-
   });
 
   it("should correctly redirect to its correct url", () => {
     render(<MovieCardView {...movieCardProps} />);
     const linkElement = screen.getByText(/testImdbID/i);
-
   });
-
 });
