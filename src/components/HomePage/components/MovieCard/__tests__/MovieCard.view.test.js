@@ -14,9 +14,13 @@ const movieCardProps = {
   imdbID: "testImdbID",
 };
 
-jest.mock("@/components/common/ChakraNextImage", () =>
-  jest.fn(({ src, onClick }) => <div onClick={onClick}>{src}</div>)
-);
+jest.mock("@chakra-ui/next-js", () => {
+  const components = jest.requireActual("@chakra-ui/next-js");
+  return {
+    ...components,
+    Image: jest.fn(({ src, onClick }) => <div onClick={onClick}>{src}</div>),
+  };
+});
 jest.mock("next/link", () =>
   jest.fn(({ href, children }) => (
     <>

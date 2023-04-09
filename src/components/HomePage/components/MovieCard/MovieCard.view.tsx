@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Flex, VStack, Text, HStack, Box } from "@chakra-ui/react";
 
-import Image from "@/components/common/ChakraNextImage";
+import { Image } from "@chakra-ui/next-js";
 
 import { MovieCardProps } from "./MovieCard.types";
 import { PLACEHOLDER_POSTER_URL } from "@/common/constants";
@@ -31,7 +31,7 @@ function MovieCard({
           }}
           cursor={"pointer"}
         >
-          <Image src={img} alt={"Movie Poster"} width={150} height={225} />
+          <Image src={img} alt={`${title} Poster`} width={150} height={225} />
           <Flex
             direction={"column"}
             alignItems={"center"}

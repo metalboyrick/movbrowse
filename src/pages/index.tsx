@@ -19,8 +19,6 @@ export default function Home(props: { search?: string }) {
 }
 
 export function getServerSideProps(context: GetServerSidePropsContext) {
-  // TODO: handle errors
-
   const search = context.query?.search || "";
 
   return {
