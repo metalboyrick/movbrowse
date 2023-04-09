@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
 import useController from "../DetailPage.controller";
@@ -49,9 +50,18 @@ describe("DetailPage.view", () => {
   it("should correctly render complete data", () => {
     render(<DetailPageView imdbID="tt4853102" />);
 
-    expect(screen.getByText(/batman/i)).toBeVisible();
-    expect(screen.getByText(/2016/i)).toBeVisible();
-    expect(screen.getByText(mockUseControllerReturnValue.Poster)).toBeVisible();
+    expect(
+      screen.getByText(mockUseControllerReturnValue.data.Title)
+    ).toBeVisible();
+    expect(
+      screen.getByText(mockUseControllerReturnValue.data.Actors)
+    ).toBeVisible();
+    expect(
+      screen.getByText(mockUseControllerReturnValue.data.Plot)
+    ).toBeVisible();
+    expect(
+      screen.getByText(mockUseControllerReturnValue.data.Poster)
+    ).toBeVisible();
   });
 
   it("should correctly render stats", () => {
@@ -61,7 +71,16 @@ describe("DetailPage.view", () => {
     expect(screen.getByText(/6.4/i)).toBeVisible();
   });
 
-  it.todo("should correctly go back when back button is clicked");
+  it("should correctly go back when back button is clicked", () => {
+    render(<DetailPageView imdbID="tt4853102" />);
+
+    const backButton = screen.getByText("Back to Home");
+
+    expect(backButton).toBeVisible();
+    expect(screen.getByRole("link")).toHaveAttribute("href", "/");
+  });
+
   it.todo("should pop up the movie image modal if clicked");
   it.todo("should render error correctly");
+  it.todo("should correctly show loading state");
 });
