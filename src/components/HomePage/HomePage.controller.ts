@@ -7,8 +7,6 @@ import { HomePageProps, UseControllerReturnValue } from "./HomePage.types";
 function useController({
   search = "",
 }: HomePageProps): UseControllerReturnValue {
-  const movieListRef = useRef<HTMLDivElement>(null);
-
   const { data, loading, error, searchWithQuery, fetchNextPage } =
     useMovieSearch();
 
