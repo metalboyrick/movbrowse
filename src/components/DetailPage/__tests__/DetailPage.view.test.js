@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import useController from "../DetailPage.controller";
 import DetailPageView from "../DetailPage.view";
@@ -34,6 +34,9 @@ const mockUseControllerReturnValue = {
 };
 
 jest.mock("../DetailPage.controller");
+jest.mock("../../common/PosterDisplayModal", () =>
+  jest.fn(() => <>poster modal</>)
+);
 jest.mock("next/image", () => jest.fn(({ src }) => <>{src}</>));
 
 const useControllerMock = useController;
@@ -80,7 +83,13 @@ describe("DetailPage.view", () => {
     expect(screen.getByRole("link")).toHaveAttribute("href", "/");
   });
 
-  it.todo("should pop up the movie image modal if clicked");
+  it("should pop up the movie image modal if clicked", () => {
+    render(<DetailPageView imdbID="tt4853102" />);
+
+    fireEvent.click(screen.getByTestId("movie-poster"));
+
+    expect(screen.getByText(/poster modal/i)).toBeVisible();
+  });
 
   it("should correctly show loading state", () => {
     const tempMockUseControllerReturnValue = {
