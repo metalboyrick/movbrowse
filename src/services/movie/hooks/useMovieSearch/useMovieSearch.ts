@@ -1,4 +1,4 @@
-import { UseMoviesReturnValue } from "./useMovies.types";
+import { UseMoviesReturnValue } from "./useMovieSearch.types";
 
 function useMovies(): UseMoviesReturnValue {
   const data: any[] = [];
