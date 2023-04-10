@@ -108,46 +108,52 @@ function DetailPage(props: DetailPageProps) {
               </HStack>
             </VStack>
             <Divider />
-            <VStack align={"left"}>
-              <Text fontSize={"2xl"} as="b">
-                Ratings
-              </Text>
-              <HStack>
-                <VStack>
-                  <CircularProgress
-                    value={data.Ratings[0].Value * 10}
-                    color="orange.400"
-                    size="150px"
-                    thickness="4px"
-                  >
-                    <CircularProgressLabel as="b">
-                      {data.Ratings[0].Value}
-                    </CircularProgressLabel>
-                  </CircularProgress>
-                  <Text fontSize="lg" color="gray.500">
-                    imDb
+
+            {data.Ratings.length > 0 && (
+              <>
+                <VStack align={"left"}>
+                  <Text fontSize={"2xl"} as="b">
+                    Ratings
                   </Text>
+                  <HStack>
+                    <VStack>
+                      <CircularProgress
+                        value={data.Ratings[0].Value * 10}
+                        color="orange.400"
+                        size="150px"
+                        thickness="4px"
+                      >
+                        <CircularProgressLabel as="b">
+                          {data.Ratings[0].Value}
+                        </CircularProgressLabel>
+                      </CircularProgress>
+                      <Text fontSize="lg" color="gray.500">
+                        imDb
+                      </Text>
+                    </VStack>
+                    {data.Ratings.length > 1 && (
+                      <VStack>
+                        <CircularProgress
+                          value={data.Ratings[1].Value}
+                          color="red.400"
+                          size="150px"
+                          thickness="4px"
+                        >
+                          <CircularProgressLabel as="b">
+                            {data.Ratings[1].Value / 10}
+                          </CircularProgressLabel>
+                        </CircularProgress>
+                        <Text fontSize="lg" color="gray.500">
+                          Rotten Tomatoes
+                        </Text>
+                      </VStack>
+                    )}
+                  </HStack>
                 </VStack>
-                {data.Ratings.length > 1 && (
-                  <VStack>
-                    <CircularProgress
-                      value={data.Ratings[1].Value}
-                      color="red.400"
-                      size="150px"
-                      thickness="4px"
-                    >
-                      <CircularProgressLabel as="b">
-                        {data.Ratings[1].Value / 10}
-                      </CircularProgressLabel>
-                    </CircularProgress>
-                    <Text fontSize="lg" color="gray.500">
-                      Rotten Tomatoes
-                    </Text>
-                  </VStack>
-                )}
-              </HStack>
-            </VStack>
-            <Divider />
+                <Divider />
+              </>
+            )}
+
             <VStack align={"left"}>
               <Text fontSize={"2xl"} as="b">
                 Synopsis
@@ -156,7 +162,7 @@ function DetailPage(props: DetailPageProps) {
             </VStack>
           </VStack>
         </Flex>
-        <Box height={15} width={1} />
+        <Box height={20} width={1} />
       </VStack>
       {showImage && (
         <PosterDisplayModal

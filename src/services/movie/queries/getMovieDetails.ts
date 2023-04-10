@@ -17,16 +17,16 @@ function normalizeData(data: GetMovieDetailsResponse | undefined) {
     }
 
   const normalizedData: MovieDetails = {
-    Title: data?.Title || "",
-    Year: data?.Year || "",
-    Rated: data?.Rated || "",
-    Released: data?.Released || "",
-    Runtime: data?.Runtime || "",
-    Genre: data?.Genre || "",
-    Director: data?.Director || "",
-    Actors: data?.Actors || "",
-    Plot: data?.Plot || "",
-    Language: data?.Language || "",
+    Title: data?.Title || "N/A",
+    Year: data?.Year || "N/A",
+    Rated: data?.Rated || "N/A",
+    Released: data?.Released || "N/A",
+    Runtime: data?.Runtime || "N/A",
+    Genre: data?.Genre || "N/A",
+    Director: data?.Director || "N/A",
+    Actors: data?.Actors || "N/A",
+    Plot: data?.Plot || "N/A",
+    Language: data?.Language || "N/A",
     Poster: data?.Poster || "",
     Ratings: normalizedRatings,
   };
