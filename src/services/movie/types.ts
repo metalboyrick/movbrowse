@@ -3,6 +3,6 @@ export interface MovieDetails {}
 export type MovieList = {
   imdbID: string;
   Title: string;
-  Poster: string | null;
+  Poster?: string;
   Year: string;
 }[];

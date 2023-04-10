@@ -23,9 +23,9 @@ function MovieCard({
         color="teal"
       >
         <Flex
-          flexDirection={{ md: "column" }}
-          width={["100%", "100%", "150px"]}
-          alignItems={["center", "center", "flex-start"]}
+          flexDirection={"column"}
+          width={"150px"}
+          alignItems={"center"}
           _hover={{
             bgColor: "teal.50",
           }}
@@ -37,7 +37,7 @@ function MovieCard({
             alignItems={"center"}
             padding={2}
             width="100%"
-            height={["225px", "225px", "120px", "120px"]}
+            height={"120px"}
           >
             <Text
               fontWeight={"bold"}

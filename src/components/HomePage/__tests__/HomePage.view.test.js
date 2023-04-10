@@ -72,6 +72,4 @@ describe("HomePage.view", () => {
 
     expect(screen.getByText(/spinner/i)).toBeVisible();
   });
-
-  it.todo("should correctly show infinite scroll behaviour");
 });

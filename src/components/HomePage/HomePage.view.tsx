@@ -1,4 +1,4 @@
-import { Center, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Center, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import useController from "./HomePage.controller";
 import { HomePageProps } from "./HomePage.types";
 import MovieCard from "./components/MovieCard";
@@ -27,16 +27,20 @@ function HomePage(props: HomePageProps) {
           {search}
         </Text>
       </Text>
-      <SimpleGrid mt={6} columns={[1, 1, 5]} spacing={8}>
-        {data.map((item) => (
-          <MovieCard
-            key={item.imdbID}
-            title={item.Title}
-            year={item.Year}
-            imdbID={item.imdbID}
-          />
-        ))}
-      </SimpleGrid>
+      <VStack mt={6}>
+        <SimpleGrid columns={[2, 2, 5]} spacing={8}>
+          {data.map((item) => (
+            <MovieCard
+              key={item.imdbID}
+              title={item.Title}
+              year={item.Year}
+              imdbID={item.imdbID}
+              img={item.Poster as string}
+            />
+          ))}
+        </SimpleGrid>
+        {loading && <Spinner />}
+      </VStack>
     </VStack>
   );
 }

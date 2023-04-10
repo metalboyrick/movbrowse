@@ -1,6 +1,9 @@
+import { MovieList } from "../../types";
+
 export interface UseMoviesReturnValue {
-  data: any[];
+  data: MovieList;
   loading: boolean;
   error: any;
-  refetch: (search?: string) => void;
+  searchWithQuery: (search: string) => Promise<void>;
+  fetchNextPage: () => Promise<void>;
 }

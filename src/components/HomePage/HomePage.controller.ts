@@ -1,99 +1,41 @@
+import { useEffect, useRef } from "react";
+
+import { useMovieSearch } from "@/services/movie/hooks";
+
 import { HomePageProps, UseControllerReturnValue } from "./HomePage.types";
 
-function useController(props: HomePageProps): UseControllerReturnValue {
+function useController({
+  search = "",
+}: HomePageProps): UseControllerReturnValue {
+  const movieListRef = useRef<HTMLDivElement>(null);
+
+  const { data, loading, error, searchWithQuery, fetchNextPage } =
+    useMovieSearch();
+
+  // adding scroll function
+  const handleScroll = () => {
+    if (!loading) {
+      const { scrollTop, clientHeight, scrollHeight } =
+        document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight) {
+        fetchNextPage();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (search.length > 0) {
+      // initial query hit
+      searchWithQuery(search);
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return {
-    data: [
-      {
-        imdbID: "tt0120737",
-        Title: "The Lord of the Rings: The Fellowship of the Ring",
-        Poster: "https://example.com/poster1.jpg",
-        Year: "2001",
-      },
-      {
-        imdbID: "tt0167260",
-        Title: "The Lord of the Rings: The Two Towers",
-        Poster: "https://example.com/poster2.jpg",
-        Year: "2002",
-      },
-      {
-        imdbID: "tt0167261",
-        Title: "The Lord of the Rings: The Return of the King",
-        Poster: "https://example.com/poster3.jpg",
-        Year: "2003",
-      },
-      {
-        imdbID: "tt1375666",
-        Title: "Inception",
-        Poster: null,
-        Year: "2010",
-      },
-      {
-        imdbID: "tt0816692",
-        Title: "Interstellar",
-        Poster: "https://example.com/poster4.jpg",
-        Year: "2014",
-      },
-      {
-        imdbID: "tt0120737",
-        Title: "The Lord of the Rings: The Fellowship of the Ring",
-        Poster: "https://example.com/poster1.jpg",
-        Year: "2001",
-      },
-      {
-        imdbID: "tt0167260",
-        Title: "The Lord of the Rings: The Two Towers",
-        Poster: "https://example.com/poster2.jpg",
-        Year: "2002",
-      },
-      {
-        imdbID: "tt0167261",
-        Title: "The Lord of the Rings: The Return of the King",
-        Poster: "https://example.com/poster3.jpg",
-        Year: "2003",
-      },
-      {
-        imdbID: "tt1375666",
-        Title: "Inception",
-        Poster: null,
-        Year: "2010",
-      },
-      {
-        imdbID: "tt0816692",
-        Title: "Interstellar",
-        Poster: "https://example.com/poster4.jpg",
-        Year: "2014",
-      },
-      {
-        imdbID: "tt0120737",
-        Title: "The Lord of the Rings: The Fellowship of the Ring",
-        Poster: "https://example.com/poster1.jpg",
-        Year: "2001",
-      },
-      {
-        imdbID: "tt0167260",
-        Title: "The Lord of the Rings: The Two Towers",
-        Poster: "https://example.com/poster2.jpg",
-        Year: "2002",
-      },
-      {
-        imdbID: "tt0167261",
-        Title: "The Lord of the Rings: The Return of the King",
-        Poster: "https://example.com/poster3.jpg",
-        Year: "2003",
-      },
-      {
-        imdbID: "tt1375666",
-        Title: "Inception",
-        Poster: null,
-        Year: "2010",
-      },
-      {
-        imdbID: "tt0816692",
-        Title: "Interstellar",
-        Poster: "https://example.com/poster4.jpg",
-        Year: "2014",
-      },
-    ],
+    data,
     loading: false,
     error: null,
   };
