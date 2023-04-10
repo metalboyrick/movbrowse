@@ -7,15 +7,15 @@ export const movieListSlice = createSlice({
     list: [] as MovieList,
   },
   reducers: {
-    append: (state, action: PayloadAction<MovieList>) => {
+    appendMovieList: (state, action: PayloadAction<MovieList>) => {
       state.list = [...state.list, ...action.payload];
     },
-    clear: (state) => {
+    clearMovieList: (state) => {
       state.list = [];
     },
   },
 });
 
-export const { append, clear } = movieListSlice.actions;
+export const { appendMovieList, clearMovieList } = movieListSlice.actions;
 
 export default movieListSlice.reducer;

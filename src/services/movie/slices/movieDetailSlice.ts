@@ -7,12 +7,12 @@ export const movieDetailSlice = createSlice({
     details: {} as MovieDetails,
   },
   reducers: {
-    setDetail: (state, action: PayloadAction<MovieDetails>) => {
+    setMovieDetail: (state, action: PayloadAction<MovieDetails>) => {
       state.details = action.payload;
     },
   },
 });
 
-export const { setDetail } = movieDetailSlice.actions;
+export const { setMovieDetail } = movieDetailSlice.actions;
 
 export default movieDetailSlice.reducer;
