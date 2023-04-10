@@ -35,7 +35,7 @@ function DetailPage(props: DetailPageProps) {
 
   return (
     <>
-      <VStack alignItems="left" maxWidth={"75vw"}>
+      <VStack alignItems="left" maxWidth={"77vw"}>
         <Flex width="100%" justifyContent={"flex-start"} my={4}>
           <Link href={"/"}>
             <Button
@@ -47,7 +47,11 @@ function DetailPage(props: DetailPageProps) {
             </Button>
           </Link>
         </Flex>
-        <Flex alignItems={"flex-start"} gap={10}>
+        <Flex
+          direction={["column", "column", "row"]}
+          alignItems={["center", "center", "flex-start"]}
+          gap={10}
+        >
           <Button
             data-testid="movie-poster"
             variant={"unstyled"}
@@ -152,6 +156,7 @@ function DetailPage(props: DetailPageProps) {
             </VStack>
           </VStack>
         </Flex>
+        <Box height={15} width={1} />
       </VStack>
       {showImage && (
         <PosterDisplayModal
