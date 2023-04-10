@@ -20,29 +20,32 @@ function useMovieSearch(): UseMoviesReturnValue {
   const dispatch = useDispatch();
 
   const searchWithQuery = async (search: string) => {
-    setLoading(true);
-    page.current = 1;
-    query.current = search;
+    if (!loading) {
+      setLoading(true);
+      page.current = 1;
+      query.current = search;
 
-    const movieList = await getMovieBySearch(search, 1);
-    dispatch(clearMovieList());
-    dispatch(appendMovieList(movieList));
+      const movieList = await getMovieBySearch(search, 1);
+      dispatch(clearMovieList());
+      dispatch(appendMovieList(movieList));
 
-    setLoading(false);
+      setLoading(false);
+    }
   };
 
   const fetchNextPage = async () => {
     if (isFull.current) return;
+    if (!loading) {
+      setLoading(true);
 
-    setLoading(true);
+      const movieList = await getMovieBySearch(query.current, page.current + 1);
+      if (movieList.length === 0) isFull.current = true;
 
-    const movieList = await getMovieBySearch(query.current, page.current + 1);
-    if (movieList.length === 0) isFull.current = true;
+      dispatch(appendMovieList(movieList));
 
-    dispatch(appendMovieList(movieList));
-
-    page.current += 1;
-    setLoading(false);
+      page.current += 1;
+      setLoading(false);
+    }
   };
 
   return { data, loading, error, searchWithQuery, fetchNextPage };

@@ -1,4 +1,11 @@
-import { Center, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  SimpleGrid,
+  Spinner,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import useController from "./HomePage.controller";
 import { HomePageProps } from "./HomePage.types";
 import MovieCard from "./components/MovieCard";
@@ -9,7 +16,7 @@ function HomePage(props: HomePageProps) {
 
   if (search.length === 0)
     return (
-      <Center width="100%" flexGrow={1} flexDirection={"column"}>
+      <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
         <Text fontSize="5xl" as="b">
           Search and view your favorite movies here.
         </Text>
@@ -28,18 +35,27 @@ function HomePage(props: HomePageProps) {
         </Text>
       </Text>
       <VStack mt={6}>
-        <SimpleGrid columns={[2, 2, 5]} spacing={8}>
-          {data.map((item) => (
-            <MovieCard
-              key={item.imdbID}
-              title={item.Title}
-              year={item.Year}
-              imdbID={item.imdbID}
-              img={item.Poster as string}
-            />
-          ))}
-        </SimpleGrid>
-        {loading && <Spinner />}
+        {data.length > 0 && (
+          <SimpleGrid columns={[2, 2, 5]} spacing={8}>
+            {data.map((item) => (
+              <MovieCard
+                key={item.imdbID}
+                title={item.Title}
+                year={item.Year}
+                imdbID={item.imdbID}
+                img={item.Poster as string}
+              />
+            ))}
+          </SimpleGrid>
+        )}
+        {(data.length === 0 || error) && !loading && (
+          <Center>Movie not found!</Center>
+        )}
+        {loading && (
+          <Box my={4}>
+            <Spinner color="teal" />
+          </Box>
+        )}
       </VStack>
     </VStack>
   );

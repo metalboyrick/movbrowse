@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 
 function useController() {
   const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
 
   const recommendation = {
     data: [
@@ -28,7 +30,9 @@ function useController() {
   };
 
   const handleSubmit = () => {
-    console.log("SUBMIT", searchValue);
+    const oldSearchValue = searchValue;
+    setSearchValue("");
+    router.push(`?search=${oldSearchValue}`);
   };
 
   const handleClickRecommendation = (imdbID: string) => {

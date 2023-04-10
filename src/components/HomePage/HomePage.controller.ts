@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 import { useMovieSearch } from "@/services/movie/hooks";
 
@@ -15,7 +15,7 @@ function useController({
     if (!loading) {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight) {
+      if (scrollTop + clientHeight === scrollHeight) {
         fetchNextPage();
       }
     }
@@ -23,19 +23,21 @@ function useController({
 
   useEffect(() => {
     if (search.length > 0) {
-      // initial query hit
       searchWithQuery(search);
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
     }
+  }, [search]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return {
     data,
-    loading: false,
-    error: null,
+    loading,
+    error,
   };
 }
 

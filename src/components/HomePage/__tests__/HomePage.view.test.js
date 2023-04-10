@@ -72,4 +72,12 @@ describe("HomePage.view", () => {
 
     expect(screen.getByText(/spinner/i)).toBeVisible();
   });
+
+  it("should show movie not found state", () => {
+    useControllerMock.mockReturnValue(useComponentMockReturnValue);
+
+    render(<HomePage search="interstellar search" />);
+
+    expect(screen.getByText(/movie not found/i)).toBeVisible();
+  });
 });
