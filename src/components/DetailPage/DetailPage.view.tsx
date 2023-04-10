@@ -8,6 +8,8 @@ import {
   CircularProgress,
   Button,
   Box,
+  Center,
+  Spinner,
 } from "@chakra-ui/react";
 import { Image, Link } from "@chakra-ui/next-js";
 import useController from "./DetailPage.controller";
@@ -16,6 +18,16 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 
 function DetailPage(props: DetailPageProps) {
   const { data, loading, error } = useController(props);
+
+  if (loading)
+    return (
+      <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
+        <VStack>
+          <Spinner size="xl" color="teal" />
+          <Text>Please wait...</Text>
+        </VStack>
+      </Center>
+    );
 
   return (
     <VStack alignItems="left" maxWidth={"75vw"}>
@@ -93,21 +105,23 @@ function DetailPage(props: DetailPageProps) {
                   imDb
                 </Text>
               </VStack>
-              <VStack>
-                <CircularProgress
-                  value={data.Ratings[1].Value * 10}
-                  color="red.400"
-                  size="150px"
-                  thickness="4px"
-                >
-                  <CircularProgressLabel as="b">
-                    {data.Ratings[1].Value}
-                  </CircularProgressLabel>
-                </CircularProgress>
-                <Text fontSize="lg" color="gray.500">
-                  Rotten Tomatoes
-                </Text>
-              </VStack>
+              {data.Ratings.length > 1 && (
+                <VStack>
+                  <CircularProgress
+                    value={data.Ratings[1].Value}
+                    color="red.400"
+                    size="150px"
+                    thickness="4px"
+                  >
+                    <CircularProgressLabel as="b">
+                      {data.Ratings[1].Value / 10}
+                    </CircularProgressLabel>
+                  </CircularProgress>
+                  <Text fontSize="lg" color="gray.500">
+                    Rotten Tomatoes
+                  </Text>
+                </VStack>
+              )}
             </HStack>
           </VStack>
           <Divider />

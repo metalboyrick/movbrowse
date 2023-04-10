@@ -32,7 +32,7 @@ function useController() {
   const handleSubmit = () => {
     const oldSearchValue = searchValue;
     setSearchValue("");
-    router.push(`?search=${oldSearchValue}`);
+    router.push(`/?search=${oldSearchValue}`);
   };
 
   const handleClickRecommendation = (imdbID: string) => {

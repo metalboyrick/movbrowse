@@ -81,6 +81,16 @@ describe("DetailPage.view", () => {
   });
 
   it.todo("should pop up the movie image modal if clicked");
-  it.todo("should render error correctly");
-  it.todo("should correctly show loading state");
+
+  it("should correctly show loading state", () => {
+    const tempMockUseControllerReturnValue = {
+      ...mockUseControllerReturnValue,
+    };
+    tempMockUseControllerReturnValue.loading = true;
+    useControllerMock.mockReturnValue(tempMockUseControllerReturnValue);
+
+    render(<DetailPageView imdbID="tt4853102" />);
+
+    expect(screen.getByText(/please wait/i)).toBeVisible();
+  });
 });

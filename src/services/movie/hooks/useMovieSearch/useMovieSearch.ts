@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { type RootState } from "@/common/store";
 import { useDispatch, useSelector } from "react-redux";
 
-import { movieListReducer } from "@/services/movie/slices";
 import { appendMovieList, clearMovieList } from "../../slices/movieListSlice";
 import { getMovieBySearch } from "@/services/movie/queries";
 

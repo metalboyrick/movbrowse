@@ -4,7 +4,29 @@ import { MovieDetails } from "../types";
 export const movieDetailSlice = createSlice({
   name: "movieDetail",
   initialState: {
-    details: {} as MovieDetails,
+    details: {
+      Title: "",
+      Year: "",
+      Rated: "",
+      Released: "",
+      Runtime: "",
+      Genre: "",
+      Director: "",
+      Actors: "",
+      Plot: "",
+      Language: "",
+      Poster: "",
+      Ratings: [
+        {
+          Source: "Internet Movie Database",
+          Value: 0.0,
+        },
+        {
+          Source: "Rotten Tomatoes",
+          Value: 0.0,
+        },
+      ],
+    } as MovieDetails,
   },
   reducers: {
     setMovieDetail: (state, action: PayloadAction<MovieDetails>) => {

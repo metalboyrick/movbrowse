@@ -13,13 +13,13 @@ export default function Detail(props: { imdbID: string }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DetailPage {...props} />
+      <DetailPage imdbID={props.imdbID} />
     </>
   );
 }
 
 export function getServerSideProps(context: GetServerSidePropsContext) {
-  const imdbID = context.params?.imdbId || "";
+  const imdbID = context.params?.imdbID || "";
 
   return {
     props: {
