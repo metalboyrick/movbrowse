@@ -42,7 +42,7 @@ yarn test
 
 ## Demo
 
-This project is live on demo link.
+This project is live on https://movbrowse.vercel.app/.
 
 ## Other notes
 
