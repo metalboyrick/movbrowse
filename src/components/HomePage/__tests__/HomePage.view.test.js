@@ -61,7 +61,8 @@ describe("HomePage.view", () => {
     expect(screen.getByText(/inception/i)).toBeVisible();
   });
 
-  it("should render loading state correctly based on fetch", () => {
+  // Test to verify the loading state is displayed correctly based on fetch
+it("should render loading state correctly based on fetch", () => {
     const tempUseControllerMockReturnValue = {
       ...useComponentMockReturnValue,
     };

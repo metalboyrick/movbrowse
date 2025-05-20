@@ -2,6 +2,9 @@ export interface DetailPageProps {
   imdbID: string;
 }
 
+/**
+ * Return value of the custom hook
+ */
 export interface UseControllerReturnValue {
   data: {
     Title: string;

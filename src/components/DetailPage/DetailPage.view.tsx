@@ -164,12 +164,7 @@ function DetailPage(props: DetailPageProps) {
         </Flex>
         <Box height={20} width={1} />
       </VStack>
-      {showImage && (
-        <PosterDisplayModal
-          img={data.Poster}
-          onClose={() => setShowImage(false)}
-        />
-      )}
+      <ImageDisplayModal showImage={showImage} setShowImage={setShowImage} imageUrl={data.Poster} />
     </>
   );
 }

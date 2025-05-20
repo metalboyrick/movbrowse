@@ -13,5 +13,5 @@ export interface UseControllerReturnValue {
     Year: string;
   }[];
   loading: boolean;
-  error: any;
+  error: unknown;
 }

@@ -31,7 +31,7 @@ function MovieCard({
           }}
           cursor={"pointer"}
         >
-          <Image src={img} alt={`${title} Poster`} width={150} height={225} />
+          <Image src={img || PLACEHOLDER_POSTER_URL} alt={`${title} Poster`} width={150} height={225} />
           <Flex
             direction={"column"}
             alignItems={"center"}

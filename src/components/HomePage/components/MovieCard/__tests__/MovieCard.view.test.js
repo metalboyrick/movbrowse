@@ -51,6 +51,6 @@ describe("MovieCard.view", () => {
 
   it("should correctly redirect to its correct url", () => {
     render(<MovieCardView {...movieCardProps} />);
-    const linkElement = screen.getByText(/testImdbID/i);
+    const linkElement = screen.getByText(/testImdbID/i, { selector: 'a' });
   });
 });

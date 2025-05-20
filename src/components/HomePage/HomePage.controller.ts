@@ -11,15 +11,23 @@ function useController({
     useMovieSearch();
 
   // adding scroll function
-  const handleScroll = () => {
-    if (!loading) {
-      const { scrollTop, clientHeight, scrollHeight } =
-        document.documentElement;
-      if (scrollTop + clientHeight === scrollHeight) {
-        fetchNextPage();
+  // Encapsulate scroll logic within a custom hook
+const useScroll = (callback) => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!loading) {
+        const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+        if (scrollTop + clientHeight === scrollHeight) {
+          callback();
+        }
       }
-    }
-  };
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+};
 
   useEffect(() => {
     if (search.length > 0) {

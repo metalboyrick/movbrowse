@@ -14,8 +14,9 @@ const useMovieSearchMockProps = {
   search: "test",
 };
 
+// Refactor to provide custom mock implementation for better control
 jest.mock("@/services/movie/hooks", () => ({
-  useMovieSearch: jest.fn(),
+  useMovieSearch: jest.fn(() => useMovieSearchMockReturnValue),
 }));
 
 const useMovieSearchMock = useMovieSearch;
