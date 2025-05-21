@@ -1,0 +1,3 @@
+Feature implementation based on prompt: Change all instances of the word 'Search' into 'Look'
+
+This file was auto-generated.
