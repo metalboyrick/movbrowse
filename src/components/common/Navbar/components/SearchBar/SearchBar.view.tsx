@@ -11,7 +11,7 @@ import {
 
 import useController from "./SearchBar.controller";
 
-function SearchBar() {
+function LookBar() {
   const { searchValue, handleSearch, handleSubmit } = useController();
 
   return (
@@ -24,7 +24,7 @@ function SearchBar() {
         <Input
           _focus={{ bgColor: "white" }}
           variant="filled"
-          placeholder="Search for movies"
+          placeholder="Look for movies"
           onChange={handleSearch}
           borderRadius="0"
           value={searchValue}
@@ -44,4 +44,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default LookBar;

@@ -1,2 +1,2 @@
-export * from "./SearchBar.view";
-export { default } from "./SearchBar.view";
+export * from "./LookBar.view";
+export { default } from "./LookBar.view";
