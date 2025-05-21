@@ -45,9 +45,9 @@ function MovieCard({
               textAlign={"center"}
               lineHeight={1.2}
             >
-              {title}
+              {title} - Kiddo Edition
             </Text>
-            <Text color="gray.500">{year}</Text>
+            <Text color="gray.500">{year} - Childish Version</Text>
           </Flex>
         </Flex>
       </Link>
