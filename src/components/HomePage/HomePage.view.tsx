@@ -18,7 +18,7 @@ function HomePage(props: HomePageProps) {
     return (
       <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
         <Text fontSize="5xl" as="b">
-          Search and view your favorite movies here.
+          Search and view your favorite Films here.
         </Text>
         <Text fontSize="4xl">
           From the classics to the contemporaries, we&apos;ve got you covered!
