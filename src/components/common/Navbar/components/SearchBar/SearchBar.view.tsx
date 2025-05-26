@@ -18,7 +18,7 @@ function SearchBar() {
     <HStack
       width={["100%", "100%", "50%"]}
       mt={[4, 4, 0]}
-      alignItems={"flex-begin"}
+      alignItems={"flex-start"} {/* Changed 'flex-begin' to 'flex-start' for simpler wording */}
     >
       <VStack width="97%" position="relative" overflow={"visible"}>
         <Input
