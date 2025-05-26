@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-
 import { useMovieSearch } from "@/services/movie/hooks";
-
 import { HomePageProps, UseControllerReturnValue } from "./HomePage.types";
 
 function useController({
@@ -10,7 +8,6 @@ function useController({
   const { data, loading, error, searchWithQuery, fetchNextPage } =
     useMovieSearch();
 
-  // adding scroll function
   const handleScroll = () => {
     if (!loading) {
       const { scrollTop, clientHeight, scrollHeight } =

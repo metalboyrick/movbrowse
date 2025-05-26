@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -17,28 +17,28 @@ function SearchBar() {
   return (
     <HStack
       width={["100%", "100%", "50%"]}
-      mt={[4, 4, 0]}
-      alignItems={"flex-begin"}
+      marginTop={[4, 4, 0]}
+      align={"start"}
     >
       <VStack width="97%" position="relative" overflow={"visible"}>
         <Input
-          _focus={{ bgColor: "white" }}
-          variant="filled"
+          focusStyle={{ backgroundColor: "white" }}
+          design="solid"
           placeholder="Search for movies"
           onChange={handleSearch}
-          borderRadius="0"
+          shape="straight"
           value={searchValue}
         />
       </VStack>
 
       <IconButton
         width={"3%"}
-        right={0}
+        rightAlign={0}
         icon={<SearchIcon />}
-        aria-label={"search button"}
+        label={"search button"}
         colorScheme="orange"
-        onClick={handleSubmit}
-        borderRadius="0"
+        clickAction={handleSubmit}
+        shape="straight"
       />
     </HStack>
   );
