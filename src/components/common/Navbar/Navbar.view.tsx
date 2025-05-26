@@ -20,7 +20,7 @@ function Navbar() {
           cursor="pointer"
           _hover={{ textDecoration: "none" }}
         >
-          MovBrowse
+          MysticalJourney
         </Link>
 
         <SearchBar />
