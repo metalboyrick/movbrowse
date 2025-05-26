@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   Box,
