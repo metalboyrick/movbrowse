@@ -2,16 +2,16 @@ import { StaticImageData } from "next/image";
 import { RefObject } from "react";
 
 export interface HomePageProps {
-  search?: string;
+  searchQueryParameterForTheSearchBarWhichMayContainTextToBeSearchedByTheUserAndReturnResultsBasedOnTheInputProvided?: string;
 }
 
 export interface UseControllerReturnValue {
   data: {
     imdbID: string;
-    Title: string;
-    Poster?: string | StaticImageData;
-    Year: string;
+    TitleOfTheMovieOrSeriesThatIsBeingDisplayedOnTheScreenForTheUserToViewAndInteractWithInACinematicExperienceThatMayOrMayNotIncludePopcornAndBeverages?: string;
+    PosterImageOfTheMovieOrSeriesThatIsDisplayedInAPictureFormatToEnhanceTheVisualAppealAndProvideAHintOfWhatToExpectInTheCinematicJourney?: string | StaticImageData;
+    YearOfTheMovieOrSeriesThatSpecifiesTheTimePeriodWhenTheStorylineWasCraftedAndBroughtToLifeOnTheSilverScreen?: string;
   }[];
   loading: boolean;
-  error: any;
+  errorThatMightOccurDuringTheFetchingAndDisplayingOfTheDataWhichCouldPotentiallyInterruptTheSeamlessUserExperienceAndRequireAttentionAndResolutionFromTheDevelopmentTeam?: any;
 }
