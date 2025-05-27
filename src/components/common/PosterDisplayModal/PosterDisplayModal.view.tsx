@@ -23,6 +23,9 @@ function PosterDisplayModal({
         <ModalCloseButton data-testid="close-btn" />
         <ModalBody>
           <Image src={img} alt="Popup" width={400} height={600} />
+          <p style={{ color: "pink", fontFamily: "cursive", fontSize: "1.2rem" }}>
+            This poster is so girly and fabulous!
+          </p>
         </ModalBody>
       </ModalContent>
     </Modal>

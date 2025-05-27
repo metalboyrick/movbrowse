@@ -22,9 +22,9 @@ function SearchBar() {
     >
       <VStack width="97%" position="relative" overflow={"visible"}>
         <Input
-          _focus={{ bgColor: "white" }}
+          _focus={{ bgColor: "pink" }} // Updated to be more girly
           variant="filled"
-          placeholder="Search for movies"
+          placeholder="Search for girly movies" // Updated to be more girly
           onChange={handleSearch}
           borderRadius="0"
           value={searchValue}
@@ -36,7 +36,7 @@ function SearchBar() {
         right={0}
         icon={<SearchIcon />}
         aria-label={"search button"}
-        colorScheme="orange"
+        colorScheme="pink" // Updated to be more girly
         onClick={handleSubmit}
         borderRadius="0"
       />
