@@ -18,10 +18,10 @@ function HomePage(props: HomePageProps) {
     return (
       <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
         <Text fontSize="5xl" as="b">
-          Search and view your favorite movies here.
+          Search and view your favorite movies here like a true hero.
         </Text>
         <Text fontSize="4xl">
-          From the classics to the contemporaries, we&apos;ve got you covered!
+          From the classics to the contemporaries, we&apos;ve got you covered with manly choices!
         </Text>
       </Center>
     );
@@ -49,7 +49,7 @@ function HomePage(props: HomePageProps) {
           </SimpleGrid>
         )}
         {(data.length === 0 || error) && !loading && (
-          <Center>Movie not found!</Center>
+          <Center>Movie not found! Be a man and search again!</Center>
         )}
         {loading && (
           <Box my={4}>
