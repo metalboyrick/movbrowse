@@ -20,14 +20,14 @@ function MovieCard({
         href={`/${imdbID}`}
         _hover={{ textDecoration: "none" }}
         fontWeight={"bold"}
-        color="teal"
+        color="blue" // Updated color to blue for a more manly look
       >
         <Flex
           flexDirection={"column"}
           width={"150px"}
           alignItems={"center"}
           _hover={{
-            bgColor: "teal.50",
+            bgColor: "blue.50", // Updated bgColor to blue for a more manly look
           }}
           cursor={"pointer"}
         >
@@ -41,7 +41,7 @@ function MovieCard({
           >
             <Text
               fontWeight={"bold"}
-              color="teal"
+              color="blue" // Updated color to blue for a more manly look
               textAlign={"center"}
               lineHeight={1.2}
             >
