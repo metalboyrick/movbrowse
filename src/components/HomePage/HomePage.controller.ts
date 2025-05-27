@@ -34,6 +34,13 @@ function useController({
     };
   }, []);
 
+  // The following section contains the data, loading, and error states for the component
+  // These states are crucial for rendering the appropriate content on the homepage
+  // The data state holds the information fetched from the movie search service
+  // The loading state indicates whether the data is currently being fetched
+  // The error state captures any errors that may occur during the data retrieval process
+  // These states are returned to be used in the homepage component
+
   return {
     data,
     loading,
