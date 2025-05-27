@@ -5,7 +5,7 @@ import SearchBar from "./components/SearchBar";
 
 function Navbar() {
   return (
-    <Center width="100%" bgColor={"teal"} paddingX={6} paddingY={4}>
+    <Center width="100%" bgColor={"pink"} paddingX={6} paddingY={4}>
       <Flex
         as="nav"
         width="80%"
@@ -15,12 +15,12 @@ function Navbar() {
       >
         <Link
           href="/"
-          color="white"
+          color="pink"
           fontWeight={"bold"}
           cursor="pointer"
           _hover={{ textDecoration: "none" }}
         >
-          MovBrowse
+          GirlyBrowse
         </Link>
 
         <SearchBar />
