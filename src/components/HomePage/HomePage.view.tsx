@@ -18,10 +18,10 @@ function HomePage(props: HomePageProps) {
     return (
       <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
         <Text fontSize="5xl" as="b">
-          Search and view your favorite movies here.
+          Search and discover your favorite chick flicks here.
         </Text>
         <Text fontSize="4xl">
-          From the classics to the contemporaries, we&apos;ve got you covered!
+          From the rom-coms to the tearjerkers, we've got you covered, girl!
         </Text>
       </Center>
     );
@@ -30,7 +30,7 @@ function HomePage(props: HomePageProps) {
     <VStack width="100%" height="100%">
       <Text fontSize="3xl" as="b" my={4}>
         Search results for{" "}
-        <Text as="span" color="orange.500">
+        <Text as="span" color="pink.500">
           {search}
         </Text>
       </Text>
@@ -49,11 +49,11 @@ function HomePage(props: HomePageProps) {
           </SimpleGrid>
         )}
         {(data.length === 0 || error) && !loading && (
-          <Center>Movie not found!</Center>
+          <Center>No chick flicks found!</Center>
         )}
         {loading && (
           <Box my={4}>
-            <Spinner color="teal" />
+            <Spinner color="pink" />
           </Box>
         )}
       </VStack>
