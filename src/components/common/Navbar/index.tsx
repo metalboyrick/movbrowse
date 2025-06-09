@@ -1,2 +1,2 @@
-export * from "./Navbar.view.girly";
-export { default } from "./Navbar.view.girly";
+export * from "./Navbar.view.nerdy";
+export { default } from "./Navbar.view.nerdy";

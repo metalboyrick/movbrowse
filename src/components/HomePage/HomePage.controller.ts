@@ -10,7 +10,7 @@ function useController({
   const { data, loading, error, searchWithQuery, fetchNextPage } =
     useMovieSearch();
 
-  // adding scroll function
+  // adding scroll function for nerdy users
   const handleScroll = () => {
     if (!loading) {
       const { scrollTop, clientHeight, scrollHeight } =
