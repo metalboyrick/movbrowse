@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Flex, VStack, Text, HStack, Box } from "@chakra-ui/react";
-
-import { Image } from "@chakra-ui/next-js";
+import React from "react";
+import { Flex, Text, Image } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
 
 import { MovieCardProps } from "./MovieCard.types";
 import { PLACEHOLDER_POSTER_URL } from "@/common/constants";
-import { Link } from "@chakra-ui/next-js";
-import { StarIcon } from "@chakra-ui/icons";
 
 function MovieCard({
   title,
@@ -51,6 +49,10 @@ function MovieCard({
           </Flex>
         </Flex>
       </Link>
+      <Text color="teal">Hi there, sweetie!</Text>
+      <Text color="teal">Oh dear!</Text>
+      <Text color="teal">Just a moment, sweetheart!</Text>
+      <Text color="teal">Are you sure you want to leave, honey? We’d love to have you stay!</Text>
     </>
   );
 }
