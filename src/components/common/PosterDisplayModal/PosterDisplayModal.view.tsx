@@ -19,8 +19,8 @@ function PosterDisplayModal({
     <Modal isOpen={true} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Poster</ModalHeader>
-        <ModalCloseButton data-testid="close-btn" />
+        <ModalHeader>Oh boy! Poster</ModalHeader>
+        <ModalCloseButton data-testid="close-btn">See ya real soon!</ModalCloseButton>
         <ModalBody>
           <Image src={img} alt="Popup" width={400} height={600} />
         </ModalBody>

@@ -24,7 +24,7 @@ function SearchBar() {
         <Input
           _focus={{ bgColor: "white" }}
           variant="filled"
-          placeholder="Search for movies"
+          placeholder="Oh boy! Search for films"
           onChange={handleSearch}
           borderRadius="0"
           value={searchValue}
