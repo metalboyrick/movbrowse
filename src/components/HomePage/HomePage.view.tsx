@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Center,
@@ -18,7 +19,7 @@ function HomePage(props: HomePageProps) {
     return (
       <Center width="100%" flexGrow={1} flexDirection={"column"} px={10}>
         <Text fontSize="5xl" as="b">
-          Oh boy! Discover and view your cherished films here.
+          Hi there, sweetie! Discover and view your cherished films here.
         </Text>
         <Text fontSize="4xl">
           From the classics to the modern gems, we've got you covered! See ya real soon!
@@ -49,7 +50,7 @@ function HomePage(props: HomePageProps) {
           </SimpleGrid>
         )}
         {(data.length === 0 || error) && !loading && (
-          <Center>Gosh! Film not found! Wanna try again, pal?</Center>
+          <Center>Oh dear! Film not found! Could you please try again, dear?</Center>
         )}
         {loading && (
           <Box my={4}>

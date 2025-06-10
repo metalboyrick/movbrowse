@@ -49,13 +49,10 @@ function MovieCard({
           </Flex>
         </Flex>
       </Link>
-      <Text color="teal">Oh boy!</Text>
-      <Text color="teal">Gosh!</Text>
-      <Text color="teal">See ya real soon!</Text>
-      <Text color="teal">Oh boy! Welcome to Movbrowse, pal!</Text>
-      <Text color="teal">Gosh! Seems like something went a little haywire. Wanna try again, pal?</Text>
-      <Text color="teal">Hang on tight, we're getting your content ready! Yippee!</Text>
-      <Text color="teal">Are you sure you wanna leave, pal? We’ll miss ya!</Text>
+      <Text color="teal">Hi there, sweetie!</Text>
+      <Text color="teal">Oh dear!</Text>
+      <Text color="teal">Just a moment, sweetheart!</Text>
+      <Text color="teal">Are you sure you want to leave, honey? We’d love to have you stay!</Text>
     </>
   );
 }
