@@ -24,7 +24,7 @@ function SearchBar() {
         <Input
           _focus={{ bgColor: "white" }}
           variant="filled"
-          placeholder="Search for movies"
+          placeholder="I am Groot"
           onChange={handleSearch}
           borderRadius="0"
           value={searchValue}
@@ -35,7 +35,7 @@ function SearchBar() {
         width={"3%"}
         right={0}
         icon={<SearchIcon />}
-        aria-label={"search button"}
+        aria-label={"I am Groot"}
         colorScheme="orange"
         onClick={handleSubmit}
         borderRadius="0"
