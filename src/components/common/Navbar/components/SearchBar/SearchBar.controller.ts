@@ -4,7 +4,12 @@ import { ChangeEvent, useState } from "react";
 function useController() {
   const [searchValue, setSearchValue] = useState("");
 
-  const grootPhrases = ["I am Groot.", "We are Groot.", "I... am... Groot."];
+  const phrases = [
+    "I am not just Groot.",
+    "Guardians unite!",
+    "Rocket needs this.",
+    "Groot is learning!"
+  ];
 
   const router = useRouter();
 
@@ -12,8 +17,8 @@ function useController() {
     setSearchValue(e.target.value);
   };
 
-  const getGrootText = () => {
-    return grootPhrases[Math.floor(Math.random() * grootPhrases.length)];
+  const getLessGrootyText = () => {
+    return phrases[Math.floor(Math.random() * phrases.length)];
   };
 
   const handleSubmit = () => {
@@ -23,9 +28,9 @@ function useController() {
   };
 
   return {
-    searchValue: getGrootText(),
-    handleSearch: () => setSearchValue("I am Groot"),
-    handleSubmit: () => router.push(`/?search=I am Groot`),
+    searchValue: getLessGrootyText(),
+    handleSearch: () => setSearchValue("I am not just Groot."),
+    handleSubmit: () => router.push(`/?search=I am not just Groot.`),
   };
 }
 

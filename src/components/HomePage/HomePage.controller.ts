@@ -4,58 +4,63 @@ import { useMovieSearch } from "@/services/movie/hooks";
 
 import { HomePageProps, UseControllerReturnValue } from "./HomePage.types";
 
-function getGrootText() {
-    const grootPhrases = ["I am Groot.", "We are Groot.", "I... am... Groot."];
-    return grootPhrases[Math.floor(Math.random() * grootPhrases.length)];
+function getLessGrootyText() {
+    const phrases = [
+        "I am not just Groot.",
+        "Guardians unite!",
+        "Rocket needs this.",
+        "Groot is learning!"
+    ];
+    return phrases[Math.floor(Math.random() * phrases.length)];
 }
 
 function useController({
-  search = "",
+    search = "",
 }: HomePageProps): UseControllerReturnValue {
-  const { data, loading, error, searchWithQuery, fetchNextPage } =
-    useMovieSearch();
+    const { data, loading, error, searchWithQuery, fetchNextPage } =
+        useMovieSearch();
 
-  // adding scroll function
-  const handleScroll = () => {
-    if (!loading) {
-      const { scrollTop, clientHeight, scrollHeight } =
-        document.documentElement;
-      if (scrollTop + clientHeight === scrollHeight) {
-        fetchNextPage();
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (search.length > 0) {
-      searchWithQuery(search);
-    }
-  }, [search]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    // adding scroll function
+    const handleScroll = () => {
+        if (!loading) {
+            const { scrollTop, clientHeight, scrollHeight } =
+                document.documentElement;
+            if (scrollTop + clientHeight === scrollHeight) {
+                fetchNextPage();
+            }
+        }
     };
-  }, []);
 
-  const grootText = getGrootText();
+    useEffect(() => {
+        if (search.length > 0) {
+            searchWithQuery(search);
+        }
+    }, [search]);
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(grootText)
-      .then(() => {
-        console.log('Text copied to clipboard:', grootText);
-      })
-      .catch(err => {
-        console.error('Could not copy text: ', err);
-      });
-  };
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
-  return {
-    data,
-    loading,
-    error,
-  };
+    const text = getLessGrootyText();
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                console.log('Text copied to clipboard:', text);
+            })
+            .catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+    };
+
+    return {
+        data,
+        loading,
+        error,
+    };
 }
 
 export default useController;
