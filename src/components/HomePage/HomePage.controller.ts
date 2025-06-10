@@ -4,6 +4,11 @@ import { useMovieSearch } from "@/services/movie/hooks";
 
 import { HomePageProps, UseControllerReturnValue } from "./HomePage.types";
 
+function getGrootText() {
+    const grootPhrases = ["I am Groot.", "We are Groot.", "I... am... Groot."];
+    return grootPhrases[Math.floor(Math.random() * grootPhrases.length)];
+}
+
 function useController({
   search = "",
 }: HomePageProps): UseControllerReturnValue {
@@ -33,6 +38,18 @@ function useController({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const grootText = getGrootText();
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(grootText)
+      .then(() => {
+        console.log('Text copied to clipboard:', grootText);
+      })
+      .catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+  };
 
   return {
     data,
