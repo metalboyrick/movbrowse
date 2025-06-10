@@ -12,7 +12,7 @@ function useController() {
   const handleSubmit = () => {
     const oldSearchValue = searchValue;
     setSearchValue("");
-    router.push(`/?search=${oldSearchValue}`);
+    router.push(`/?smurf=${oldSearchValue}`); // Updated to reflect Smurf theme
   };
 
   return {
