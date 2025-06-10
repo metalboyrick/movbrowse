@@ -10,16 +10,16 @@ const mockControllerReturnValue = {
   recommendation: {
     data: [
       {
-        Title: "testrec1",
-        imdbID: "imdbtestrec1",
+        Title: "smurfrec1",
+        imdbID: "imdbsmurfrec1",
       },
       {
-        Title: "testrec2",
-        imdbID: "imdbtestrec2",
+        Title: "smurfrec2",
+        imdbID: "imdbsmurfrec2",
       },
       {
-        Title: "testrec3",
-        imdbID: "imdbtestrec3",
+        Title: "smurfrec3",
+        imdbID: "imdbsmurfrec3",
       },
     ],
     loading: false,
@@ -36,7 +36,7 @@ jest.mock("@chakra-ui/react", () => {
   return {
     ...components,
     IconButton: jest.fn(({ onClick }) => (
-      <button onClick={onClick}>searchbutton</button>
+      <button onClick={onClick}>smurfbutton</button>
     )),
     Input: jest.fn(({ onChange, placeholder, ref }) => (
       <input ref={ref} onChange={onChange} placeholder={placeholder} />
@@ -58,37 +58,37 @@ describe("Navbar/SearchBar.view", () => {
   it("should initial render correctly", () => {
     render(<SearchBarView />);
 
-    expect(screen.getByPlaceholderText(/search for movies/i)).toBeVisible();
-    expect(screen.getByText(/searchbutton/i)).toBeVisible();
-    expect(screen.queryByText(/testrec1/i)).not.toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/smurf for movies/i)).toBeVisible();
+    expect(screen.getByText(/smurfbutton/i)).toBeVisible();
+    expect(screen.queryByText(/smurfrec1/i)).not.toBeInTheDocument();
   });
 
   it("should render dropdown correctly - base case", () => {
     const tempControllerReturnValue = { ...mockControllerReturnValue };
-    tempControllerReturnValue.searchValue = "batman";
+    tempControllerReturnValue.searchValue = "smurfman";
     tempControllerReturnValue.handleSearch = jest.fn((args) => args);
 
     useControllerMock.mockReturnValue(tempControllerReturnValue);
 
     render(<SearchBarView />);
 
-    const input = screen.getByPlaceholderText(/search for movies/i);
-    fireEvent.change(input, { target: { value: "batman" } });
+    const input = screen.getByPlaceholderText(/smurf for movies/i);
+    fireEvent.change(input, { target: { value: "smurfman" } });
 
     expect(tempControllerReturnValue.handleSearch).toHaveBeenCalled();
-    expect(input.value).toBe("batman");
-    expect(screen.getByText(/testrec1/i)).toBeInTheDocument();
+    expect(input.value).toBe("smurfman");
+    expect(screen.getByText(/smurfrec1/i)).toBeInTheDocument();
   });
 
-  it("should handle clicking the search button correctly", () => {
+  it("should handle clicking the smurf button correctly", () => {
     const tempControllerReturnValue = { ...mockControllerReturnValue };
-    tempControllerReturnValue.searchValue = "batman";
+    tempControllerReturnValue.searchValue = "smurfman";
 
     useControllerMock.mockReturnValue(tempControllerReturnValue);
 
     render(<SearchBarView />);
 
-    const searchBtn = screen.getByText(/searchbutton/i);
+    const searchBtn = screen.getByText(/smurfbutton/i);
     fireEvent.click(searchBtn);
 
     expect(tempControllerReturnValue.handleSubmit).toBeCalled();
