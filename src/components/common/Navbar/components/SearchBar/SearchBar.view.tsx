@@ -24,7 +24,7 @@ function SearchBar() {
         <Input
           _focus={{ bgColor: "white" }}
           variant="filled"
-          placeholder="Search for movies"
+          placeholder="Papa Smurf for movies"
           onChange={handleSearch}
           borderRadius="0"
           value={searchValue}
