@@ -19,10 +19,10 @@ function PosterDisplayModal({
     <Modal isOpen={true} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Poster</ModalHeader>
+        <ModalHeader>Smurf Poster</ModalHeader>
         <ModalCloseButton data-testid="close-btn" />
         <ModalBody>
-          <Image src={img} alt="Popup" width={400} height={600} />
+          <Image src={img} alt="Smurf Popup" width={400} height={600} />
         </ModalBody>
       </ModalContent>
     </Modal>

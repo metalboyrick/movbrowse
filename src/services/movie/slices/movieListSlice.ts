@@ -2,20 +2,20 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { MovieList } from "../types";
 
 export const movieListSlice = createSlice({
-  name: "movieList",
+  name: "SmurfList",
   initialState: {
     list: [] as MovieList,
   },
   reducers: {
-    appendMovieList: (state, action: PayloadAction<MovieList>) => {
+    appendSmurfList: (state, action: PayloadAction<MovieList>) => {
       state.list = [...state.list, ...action.payload];
     },
-    clearMovieList: (state) => {
+    clearSmurfList: (state) => {
       state.list = [];
     },
   },
 });
 
-export const { appendMovieList, clearMovieList } = movieListSlice.actions;
+export const { appendSmurfList, clearSmurfList } = movieListSlice.actions;
 
 export default movieListSlice.reducer;

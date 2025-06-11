@@ -45,9 +45,9 @@ function MovieCard({
               textAlign={"center"}
               lineHeight={1.2}
             >
-              {title}
+              Smurf for movies...
             </Text>
-            <Text color="gray.500">{year}</Text>
+            <Text color="gray.500">Smurf your secret...</Text>
           </Flex>
         </Flex>
       </Link>

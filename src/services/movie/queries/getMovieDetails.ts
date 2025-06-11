@@ -17,16 +17,16 @@ function normalizeData(data: GetMovieDetailsResponse | undefined) {
     }
 
   const normalizedData: MovieDetails = {
-    Title: data?.Title || "N/A",
-    Year: data?.Year || "N/A",
-    Rated: data?.Rated || "N/A",
-    Released: data?.Released || "N/A",
-    Runtime: data?.Runtime || "N/A",
-    Genre: data?.Genre || "N/A",
-    Director: data?.Director || "N/A",
-    Actors: data?.Actors || "N/A",
-    Plot: data?.Plot || "N/A",
-    Language: data?.Language || "N/A",
+    Title: data?.Title || "Smurf N/A",
+    Year: data?.Year || "Smurf N/A",
+    Rated: data?.Rated || "Smurf N/A",
+    Released: data?.Released || "Smurf N/A",
+    Runtime: data?.Runtime || "Smurf N/A",
+    Genre: data?.Genre || "Smurf N/A",
+    Director: data?.Director || "Smurf N/A",
+    Actors: data?.Actors || "Smurf N/A",
+    Plot: data?.Plot || "Smurf N/A",
+    Language: data?.Language || "Smurf N/A",
     Poster: data?.Poster || "",
     Ratings: normalizedRatings,
   };
