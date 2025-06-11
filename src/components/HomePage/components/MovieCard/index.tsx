@@ -1,2 +1,2 @@
-export * from "./MovieCard.view";
-export { default } from "./MovieCard.view";
+export * from "./SmurfCard.view";
+export { default } from "./SmurfCard.view";

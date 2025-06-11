@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { type RootState } from "@/common/store";
+import { RootState } from "@/common/store";
 import { useDispatch, useSelector } from "react-redux";
 
 import { appendMovieList, clearMovieList } from "../../slices/movieListSlice";
