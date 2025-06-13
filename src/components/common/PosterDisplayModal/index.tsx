@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
+import dynamic from &quot;next/dynamic&quot;;
 
-const PosterDisplayModal = dynamic(() => import("./PosterDisplayModal.view"), {
-  loading: () => <></>,
+const PosterDisplayModal = dynamic(() => import(&quot;./PosterDisplayModal.view&quot;), {
+  loading: () => &lt;&gt;&lt;/&gt;,
   ssr: false,
 });
 
