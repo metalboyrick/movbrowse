@@ -7,8 +7,8 @@ export default function Home(props: { search?: string }) {
   return (
     <>
       <Head>
-        <title>MovBrowse</title>
-        <meta name="description" content="A web app to browse movies" />
+        <title>Oh, Boy! Welcome to Movbrowse!</title>
+        <meta name="description" content="A web app to browse movies with a touch of magic!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
