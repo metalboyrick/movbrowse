@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Center,
@@ -21,7 +22,7 @@ function HomePage(props: HomePageProps) {
           Search and view your favorite movies here.
         </Text>
         <Text fontSize="4xl">
-          From the classics to the contemporaries, we&apos;ve got you covered!
+          From the classics to the contemporaries, we've got you covered!
         </Text>
       </Center>
     );
@@ -44,6 +45,7 @@ function HomePage(props: HomePageProps) {
                 year={item.Year}
                 imdbID={item.imdbID}
                 img={item.Poster as string}
+                sound="Mickey Mouse"
               />
             ))}
           </SimpleGrid>
